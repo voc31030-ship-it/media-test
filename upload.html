@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Manage Project Media - WEBUILD</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid sticky-top bg-dark bg-light-radial shadow-sm px-5 pe-lg-0">
+        <nav class="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="m-0 display-4 text-uppercase text-white"><i class="bi bi-building text-primary me-2"></i>WEBUILD</h1>
+            </a>
+            <div class="navbar-nav ms-auto py-0">
+                <a href="project.html" class="nav-item nav-link">Our Project</a>
+                <a href="upload.html" class="nav-item nav-link active">Manage Media</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-uppercase text-white mb-3">Project Media</h1>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a href="project.html">Our Project</a></h6>
+            <h6 class="text-white m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-white m-0">Manage Media</h6>
+        </div>
+    </div>
+
+    <main class="container-fluid bg-light py-6 px-5">
+        <div class="media-upload-panel">
+            <div class="text-center mb-4">
+                <h2 class="text-uppercase mb-3">Add media to your project</h2>
+                <p class="mb-0">Upload images and videos to display them in the project gallery. You can delete uploads at any time.</p>
+            </div>
+            <section class="mb-4" aria-labelledby="account-heading">
+                <h3 id="account-heading" class="text-uppercase h5">Media manager sign-in</h3>
+                <div id="auth-form">
+                    <p class="text-body">Sign in with an approved media-manager account. New accounts must be approved before they can upload or delete media.</p>
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <label class="form-label" for="auth-email">Email</label>
+                            <input class="form-control" id="auth-email" type="email" autocomplete="username" required>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label" for="auth-password">Password</label>
+                            <input class="form-control" id="auth-password" type="password" autocomplete="current-password" required>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button id="sign-in" class="btn btn-primary w-100" type="button">Sign in</button>
+                        </div>
+                    </div>
+                    <button id="sign-up" class="btn btn-link px-0 mt-2" type="button">Create an account</button>
+                </div>
+                <div id="auth-session" class="d-none align-items-center justify-content-between">
+                    <p class="mb-0">Signed in as <strong id="auth-user-email"></strong></p>
+                    <button id="sign-out" class="btn btn-outline-primary" type="button">Sign out</button>
+                </div>
+            </section>
+            <p id="auth-status" class="mb-3 text-body" role="status" aria-live="polite"></p>
+            <div class="media-upload-dropzone">
+                <i class="bi bi-cloud-upload display-4 text-primary"></i>
+                <p class="fw-bold mt-3 mb-1">Choose images or videos</p>
+                <p class="text-body mb-4">Approved uploads are stored in Supabase and shown to all project visitors.</p>
+                <button id="upload-trigger" class="btn btn-primary py-3 px-5 mb-0" type="button" disabled>Upload Media</button>
+                <input class="visually-hidden" id="media-files" type="file" accept="image/*,video/*" multiple>
+            </div>
+            <p id="media-status" class="mt-3 mb-0 text-body" role="status" aria-live="polite"></p>
+            <p class="mt-2"><a href="SUPABASE-SETUP.md">View Supabase setup instructions</a></p>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-5 mb-3">
+                <h3 class="text-uppercase mb-2 mb-md-0">Uploaded media</h3>
+                <a class="text-primary fw-bold" href="project.html">View project page <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div id="media-manager-grid" class="row g-4"></div>
+        </div>
+    </main>
+
+    <div class="container-fluid bg-dark text-white-50 border-top border-primary px-0">
+        <div class="py-4 px-5 text-center">
+            <p class="mb-0">&copy; WEBUILD. Project media manager.</p>
+        </div>
+    </div>
+
+    <script src="js/supabase-config.js"></script>
+    <script src="js/project-media.js"></script>
+</body>
+
+</html>
